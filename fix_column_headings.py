@@ -147,7 +147,8 @@ tablelist = ['B01001_001E', #Age by Sex
                 'B12001_016E',
                 'B12001_017E',
                 'B12001_018E',
-                'B12001_019E'
+                'B12001_019E',
+                'B21001_002E'
             ]
 
 nameslist = ['Sex by Age: Total', #Age by Sex
@@ -294,6 +295,7 @@ nameslist = ['Sex by Age: Total', #Age by Sex
                 'Sex by Marital Status: Female, Now Married, Spouse Absent, Other',
                 'Sex by Marital Status: Female, Widowed',
                 'Sex by Marital Status: Female, Divorced',
+                'Veteran'
             ]
 
 

@@ -1,6 +1,12 @@
 # Credentials file
 credentials.py
 
+# Input table
+cities_list.xlsx
+
+#Output excel
+cities_with_data.xlsx
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

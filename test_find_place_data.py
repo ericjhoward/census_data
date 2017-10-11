@@ -102,7 +102,8 @@ tablelist = ['B15003_001E', #Educational Attainment
              'B12001_016E',
              'B12001_017E',
              'B12001_018E',
-             'B12001_019E']
+             'B12001_019E',
+             'B21001_002E']
 """
 tablelist = ['B01001_001E', #Age by Sex
                 'B01001_002E',
