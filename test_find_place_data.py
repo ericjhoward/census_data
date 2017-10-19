@@ -1,13 +1,16 @@
 from acs_data import *
 from credentials import *
 from pandas import *
+import itertools
+from multiprocessing import Pool, freeze_support
 
 #from openpyxl import load_workbook
 print("Getting started!")
 #Path to test workbox
 print("Loading in file")
 #fname = 'C:\scratch\Recession Drops - FINAL TARGET LIST.xlsx'
-fname = 'C:\scratch\output_age_by_sex2.xlsx'
+#fname = 'C:\scratch\output_age_by_sex2.xlsx'
+fname = 'test_cities_list.xlsx'
 tablelist = ['B15003_001E', #Educational Attainment
              'B15003_002E',
              'B15003_003E',
@@ -163,7 +166,7 @@ tablelist = ['B01001_001E', #Age by Sex
 #df = pandas.read_excel(fname, sheetname='Targets', header=0)
 df = pandas.read_excel(fname, sheetname='Sheet1', header=0)
 #fix leading zeros
-fips = df['FIPS Code'].apply(str).str.pad(7, 'left', '0')
+fips = df['seven_digit_fips'].apply(str).str.pad(7, 'left', '0')
 df['FIPS Code'] = fips
 #dataset = df[['org_cst_key', 'FIPS Code', 'State']].values
 
@@ -197,14 +200,18 @@ def df_get_acs_place_data(df, state_index, place_index, tablenumber, apikey, ver
     df[tablenumber] = pandas.Series(addcolumn, dtype=int)
     return(df)
 
+# Set up Pool
+
+'''
 for table in tablelist:
     print "Working on %s" % table
-    output = df_get_acs_place_data(df, 'State', 'FIPS Code', table, apikey, False)
+    output = df_get_acs_place_data(df, 'ORGANIZATION.ADR_STATE', 'FIPS Code', table, apikey, True)
     df = output
+'''
 
 print "FINISHED PROCESS DATA NOW CREATING EXPORT"
 
-writer = pandas.ExcelWriter('C:\scratch\membership_target_list_output.xlsx')
+writer = pandas.ExcelWriter('test_output.xlsx')
 df.to_excel(writer, 'Sheet1')
 writer.save()
 
